@@ -36,5 +36,5 @@ const subtracao = a-b;
 
 let lista = [];
 
-lista.push(multiplicacao, soma, subtracao)
-console.log(lista.join(''))
+lista.push(multiplicacao, soma, subtracao);
+console.log(lista.join(''));
