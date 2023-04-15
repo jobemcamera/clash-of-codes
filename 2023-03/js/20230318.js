@@ -47,15 +47,52 @@ Entrada: palavra = "abbacd"
 Saída: False
 */
 
-function verificaPalindromo(palavra){
-	var padrao = /[\W_]/g; // remove todos os caracter não alfanuméricos
+function verificaPalindromo(palavra) {
+    var padrao = /[\W_]/g; // remove todos os caracter não alfanuméricos
     palavra = palavra.toLowerCase().replace(padrao, "");
     for (var i = 0; i < palavra.length / 2; i++) {
-      if (palavra[i] !== palavra[palavra.length - 1 - i]) {
-          return false;
-      }
+        if (palavra[i] !== palavra[palavra.length - 1 - i]) { // se palavra.lenght for ímpar, i/2 = valor arredondado para cima. ex: 5/2 = 3
+            return false;
+        }
     }
     return true;
 }
-console.log(verificaPalindromo("abbacd"));
+console.log(verificaPalindromo("abbab"));
 
+
+// Solução mais acertiva
+
+/*
+function PotencialmentePalindromo(palavra) {
+    const listaPalavra = [...palavra] // ['a', 'b', 'b', 'a', 'c']
+    const resultado = listaPalavra.reduce((acumulador, atual) => {
+        if (atual in acumulador) {
+            acumulador[atual] += 1;
+        } else {
+            acumulador[atual] = 1;
+        }
+
+        return acumulador
+    }, {});
+
+    let somador = 0;
+
+    for (const letra in resultado) {
+        if (resultado.hasOwnProperty(letra)) {
+            if (resultado[letra] % 2 == 1) {
+                somador += 1;
+            }
+        }
+    }
+
+    if (somador > 1) {
+        console.log("Não é potencialmente palíndromo.")
+    } else {
+        console.log("É potencialmente palíndromo.")
+    }
+}
+
+const palavra = "aba";
+
+PotencialmentePalindromo(palavra);
+*/

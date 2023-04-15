@@ -26,9 +26,9 @@ Saída: 4
 function main(pesos){
     let viagens = 0; 
     let primeiraSacola = 0; 
-    let ultimaSacola = pesosOrdenados.length - 1;
-
     const pesosOrdenados = pesos.sort((a, b) => a - b);
+    
+    let ultimaSacola = pesosOrdenados.length - 1;
     
     while (primeiraSacola <= ultimaSacola) {
 
@@ -44,6 +44,6 @@ function main(pesos){
     return viagens;
   }
 
-const pesos = [1.01, 1.99, 2.5, 1.5, 1.01];
+const pesos = [1.01, 1.993, 1.32, 1.7, 1.8];
 
 console.log(main(pesos))

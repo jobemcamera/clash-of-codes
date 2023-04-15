@@ -31,18 +31,18 @@ function balancearParenteses(palavra) {
       if (caractere === '(') {
             pilha.push(caractere);
       } else if (caractere == ')') {
-            if (pilha.length > 0 && pilha[pilha.length - 1] == '(') {
-            pilha.pop();
+            if (pilha.length > 0 && pilha[pilha.length - 1] == '(') { // se existir pilha e o elemento dela for '(', então não precisamos add.
+            pilha.pop(); 
         } else {
-            parenetesesAdd++;
+            parenetesesAdd++; // se a pilha não existe, implica que não há a aberta "(", então precisamos add 1.
         }
       }
     }
     
-    parenetesesAdd += pilha.length;
+    parenetesesAdd += pilha.length; // percorrido todo tamanho da palavra, os parenteses a serem add serão o já calculados anteriormente + o tamanho da pilha 
 
     return parenetesesAdd;
   }
   
-  const palavra = "()))"
+  const palavra = ")()("
   console.log(balancearParenteses(palavra))

@@ -35,15 +35,14 @@ function main(numeros, objetivo) {
       const complemento = objetivo - numeros[i];
       
       if (complemento in complementos) {
-        return [complementos[complemento], i];
+        return [complementos[complemento], i]; // [(o valor da propriedade que já existe lá que é o índice), (o índice do valor atual)]
       }
       
       complementos[numeros[i]] = i;
     }
-    
   }
   
-const numeros = [0,-4,3,1, -4];
-const objetivo = -4;
+const numeros = [3,2,4];
+const objetivo = 6;
 
 console.log(main(numeros, objetivo))
